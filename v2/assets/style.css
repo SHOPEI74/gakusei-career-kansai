@@ -32,10 +32,16 @@ a{color:inherit}
 .narrow{max-width:860px}
 .skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:8px;z-index:99;background:var(--bg);padding:8px 12px}
 
-/* 運営表記バー */
-.opbar{background:var(--paper);color:var(--sub);font-size:12px;line-height:1.6}
-.opbar .wrap{padding-block:6px}
-.opbar a{margin-left:.6em}
+/* 運営表記バー（画面下に常に表示） */
+body{padding-bottom:calc(52px + env(safe-area-inset-bottom,0px))}
+.opbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);color:var(--ink);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(13,27,46,.06);padding-bottom:env(safe-area-inset-bottom,0px)}
+.opbar__in{display:flex;align-items:center;gap:12px;min-height:52px;font-size:13px;line-height:1.4}
+.opbar__k{font:800 11px/1 var(--f-en);letter-spacing:.14em;color:var(--accent-ink);background:var(--accent);padding:5px 8px}
+.opbar b{font:900 15px/1 var(--f-disp);white-space:nowrap}
+.opbar__t{color:var(--sub);min-width:0}
+.opbar a{white-space:nowrap;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
+.opbar a:first-of-type{margin-left:auto}
+@media (max-width:640px){.opbar__t{display:none}.opbar__in{gap:10px}.opbar a:last-of-type{display:none}}
 
 /* ヘッダー */
 .gh{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
