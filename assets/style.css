@@ -1,0 +1,135 @@
+/* 学生キャリア帖 KANSAI｜共通スタイル（2026-10-06 v2）
+   スマホ前提。トロワのコーポレート（白地・オレンジ・黒）に合わせる。
+   どのページも一番上にトロワの募集（③）。下にスマホ固定のエントリーバー */
+:root{
+  --bg:#FFFFFF;
+  --soft:#F5F5F3;
+  --ink:#141414;
+  --ink-2:#5B5B58;
+  --rule:#E3E2DE;
+  --orange:#EE7800;     /* トロワのオレンジ */
+  --orange-ink:#C25F00; /* 白地の文字用 */
+  --black:#121212;      /* 募集枠の地 */
+  --on-black:#FFFFFF;
+  --f-body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  --f-en:"Montserrat","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141414;--soft:#1D1D1C;--ink:#F2F1EE;--ink-2:#B4B2AC;--rule:#33322F;
+  --orange:#FF8A1F;--orange-ink:#FF9E45;--black:#000000;--on-black:#FFFFFF;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141414;--soft:#1D1D1C;--ink:#F2F1EE;--ink-2:#B4B2AC;--rule:#33322F;
+  --orange:#FF8A1F;--orange-ink:#FF9E45;--black:#000000;--on-black:#FFFFFF;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+a{color:var(--orange-ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+img{max-width:100%}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{text-wrap:balance;line-height:1.4;margin:0}
+p,li{max-width:40em}
+
+/* PR表記 */
+.pr{font-size:11px;color:var(--ink-2);background:var(--soft)}
+.pr .wrap{padding-block:5px}
+
+/* ヘッダー */
+.top{background:var(--bg);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.logo{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);line-height:1.2}
+.logo b{font-size:18px;font-weight:900;letter-spacing:.04em}
+.logo span{font-family:var(--f-en);font-size:10px;letter-spacing:.24em;color:var(--orange-ink);font-weight:700}
+.nav{display:flex;gap:14px;overflow-x:auto;font-size:13px;padding-block:8px;border-top:1px solid var(--rule)}
+.nav a{color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.nav a:hover{color:var(--orange-ink)}
+
+/* ===== ③ トロワの募集（全ページの一番上） ===== */
+.trois{background:var(--black);color:var(--on-black);position:relative;overflow:hidden}
+.trois::before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;
+  background:var(--orange);opacity:.95}
+.trois::after{content:"INTERN";position:absolute;right:10px;bottom:-22px;font-family:var(--f-en);font-weight:900;
+  font-size:84px;letter-spacing:-.02em;color:#FFFFFF;opacity:.06;line-height:1}
+.trois .wrap{position:relative;padding-block:28px 26px;display:flex;flex-direction:column;gap:14px}
+.trois .badge{align-self:flex-start;background:var(--orange);color:#fff;font-family:var(--f-en);font-weight:800;
+  font-size:11px;letter-spacing:.18em;padding:4px 10px}
+.trois .co{font-size:13px;font-weight:700;letter-spacing:.08em;opacity:.85}
+.trois h2{font-size:clamp(26px,7.4vw,40px);font-weight:900;line-height:1.3;letter-spacing:.01em;border:0;padding:0;margin:0}
+.trois h2 em{font-style:normal;color:var(--orange)}
+.trois .sub{font-size:15px;opacity:.92;margin:0}
+.perks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:4px 0 0;padding:0;list-style:none}
+.perks li{background:#FFFFFF14;border:1px solid #FFFFFF2E;padding:10px 12px;font-size:13px;line-height:1.5}
+.perks b{display:block;color:var(--orange);font-size:15px}
+.trois .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 22px;background:var(--orange);
+  color:#fff;font-weight:900;font-size:16px;text-decoration:none;border:0;cursor:pointer;letter-spacing:.04em}
+.btn:hover{filter:brightness(1.08)}
+.btn.line{background:transparent;color:var(--on-black);border:1.5px solid #FFFFFF8C}
+.trois .btn{flex:1 1 180px}
+.trois .place{font-size:12px;opacity:.75}
+
+/* スマホ固定のエントリーバー */
+.entrybar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--black);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px}
+.entrybar span{color:var(--on-black);font-size:12px;line-height:1.4;flex:1;min-width:0}
+.entrybar span b{color:var(--orange)}
+.entrybar .btn{padding:12px 18px;font-size:15px;flex:0 0 auto}
+
+/* ===== ① 読みもの ===== */
+.main{padding-block:32px 48px}
+.eyebrow{font-family:var(--f-en);font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--orange-ink);margin-bottom:8px}
+h1{font-size:clamp(24px,6.4vw,34px);font-weight:900}
+h2{font-size:21px;font-weight:900;margin-top:40px;padding-left:12px;border-left:5px solid var(--orange)}
+h3{font-size:17px;font-weight:800;margin-top:24px}
+.lead{font-size:16px;color:var(--ink-2);margin-top:12px}
+.list{display:flex;flex-direction:column;gap:12px;margin-top:18px;padding:0;list-style:none}
+.list a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:start;padding:16px;background:var(--soft);
+  text-decoration:none;color:var(--ink);border-bottom:3px solid transparent}
+.list a:hover{border-bottom-color:var(--orange)}
+.list .no{font-family:var(--f-en);font-weight:900;font-size:26px;color:var(--orange-ink);line-height:1}
+.list .tag{font-family:var(--f-en);font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--ink-2)}
+.list .t{display:block;font-weight:900;font-size:16px;line-height:1.5}
+.list .d{display:block;font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:4px}
+
+/* 時間割 */
+.timetable{margin-top:22px;overflow-x:auto}
+.timetable table{border-collapse:collapse;width:100%;min-width:460px;font-size:12px}
+.timetable th,.timetable td{border:1px solid var(--rule);padding:7px 4px;text-align:center}
+.timetable thead th{background:var(--soft)}
+.timetable tbody th{color:var(--ink-2);font-weight:500;white-space:nowrap}
+.c-class{color:var(--ink-2)}
+.c-work{background:var(--orange);color:#fff;font-weight:900}
+.c-job{background:var(--soft);font-weight:700}
+.caption{font-size:12px;color:var(--ink-2);margin-top:6px}
+
+/* 記事 */
+.meta{display:flex;flex-wrap:wrap;gap:2px 14px;font-size:12px;color:var(--ink-2);margin-top:10px}
+.toc{margin-top:22px;padding:14px 18px;background:var(--soft);font-size:14px}
+.toc ol{margin:6px 0 0;padding-left:1.4em}
+.point{border-left:4px solid var(--orange);background:var(--soft);padding:12px 16px;margin:18px 0}
+.cta{margin-top:40px;padding:22px;background:var(--black);color:var(--on-black);display:flex;flex-direction:column;gap:10px}
+.cta .label{font-family:var(--f-en);font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--orange)}
+.cta .h{font-weight:900;font-size:20px;line-height:1.45}
+.cta p{margin:0;opacity:.9}
+.src{font-size:13px;color:var(--ink-2)}
+.src ol{padding-left:1.4em}
+
+/* 募集要項 */
+.spec{width:100%;border-collapse:collapse;margin-top:14px;font-size:15px}
+.spec th,.spec td{border-bottom:1px solid var(--rule);padding:12px 6px;text-align:left;vertical-align:top}
+.spec th{width:7em;font-weight:800;white-space:nowrap;color:var(--orange-ink)}
+@media (max-width:520px){.spec th,.spec td{display:block;width:auto}.spec th{border-bottom:0;padding-bottom:0}}
+.note{font-size:12px;color:var(--ink-2)}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:10px;margin-top:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;background:var(--soft);padding:14px}
+.steps li::before{content:"0" counter(s);font-family:var(--f-en);font-weight:900;font-size:22px;color:var(--orange-ink)}
+.todo-box{background:var(--soft);border:1px dashed var(--orange);padding:12px 14px;font-size:13px;margin-top:16px}
+
+/* フッター */
+.foot{background:var(--soft);font-size:12px;color:var(--ink-2)}
+.foot .wrap{padding-block:22px;display:flex;flex-direction:column;gap:6px}
+.foot a{color:var(--ink-2)}
+
+@media (min-width:900px){body{padding-bottom:0}.entrybar{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
